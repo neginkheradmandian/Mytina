@@ -1,8 +1,29 @@
 fragment PageParts on Page {
   body
+  email
+  categories
+  socialmedia {
+    __typename
+    handle
+    service
+  }
 }
 
 fragment PostParts on Post {
   title
+  description
+  date
+  image
+  published
+  author {
+    ... on Document {
+      id
+    }
+  }
   body
+}
+
+fragment AuthorParts on Author {
+  avatar
+  avaname
 }

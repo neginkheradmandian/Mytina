@@ -75,3 +75,42 @@ query getPostList {
     }
   }
 }
+
+query getAuthorDocument($relativePath: String!) {
+  getAuthorDocument(relativePath: $relativePath) {
+    sys {
+      filename
+      basename
+      breadcrumbs
+      path
+      relativePath
+      extension
+    }
+    id
+    data {
+      ...AuthorParts
+    }
+  }
+}
+
+query getAuthorList {
+  getAuthorList {
+    totalCount
+    edges {
+      node {
+        id
+        sys {
+          filename
+          basename
+          breadcrumbs
+          path
+          relativePath
+          extension
+        }
+        data {
+          ...AuthorParts
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,15 @@
 import { staticRequest } from "tinacms";
 import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
+import {TinaMarkdown} from "tinacms/dist/rich-text";
+
+const Cta = props => {
+  return <h2>{props.heading}</h2>
+}
+
+const components = {
+  Cta:Cta,
+}
 
 const query = `query getPost($relativePath: String!) {
   getPostDocument(relativePath: $relativePath) {

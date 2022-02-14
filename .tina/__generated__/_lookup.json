@@ -4,7 +4,8 @@
     "resolveType": "multiCollectionDocumentList",
     "collections": [
       "page",
-      "post"
+      "post",
+      "author"
     ]
   },
   "Node": {
@@ -29,6 +30,12 @@
     "resolveType": "collectionDocumentList",
     "collection": "page"
   },
+  "PostAuthorDocument": {
+    "type": "PostAuthorDocument",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
+  },
   "PostDocument": {
     "type": "PostDocument",
     "resolveType": "collectionDocument",
@@ -40,5 +47,17 @@
     "type": "PostConnection",
     "resolveType": "collectionDocumentList",
     "collection": "post"
+  },
+  "AuthorDocument": {
+    "type": "AuthorDocument",
+    "resolveType": "collectionDocument",
+    "collection": "author",
+    "createAuthorDocument": "create",
+    "updateAuthorDocument": "update"
+  },
+  "AuthorConnection": {
+    "type": "AuthorConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "author"
   }
 }

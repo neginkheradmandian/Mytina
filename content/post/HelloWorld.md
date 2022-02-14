@@ -1,7 +1,22 @@
 ---
-title: This is a title
+title: This is a title for test Post
+description: XL
+date: '2022-02-16T09:00:00.000Z'
+testimonial:
+  role: testRole
+published: true
 ---
 
-This is a test
+Text in body post for testrter
 
-How are you doing?
+test after add blocks
+
+<Cta heading="test heading post after add blocks"/>
+
+<Cta heading="test action"/>
+
+rtzzzzz
+
+<Cta/>
+
+<Cta/>

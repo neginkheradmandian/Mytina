@@ -1,25 +1,114 @@
 {
   "version": {
-    "fullVersion": "0.59.3",
+    "fullVersion": "0.59.6",
     "major": "0",
     "minor": "59",
-    "patch": "3"
+    "patch": "6"
   },
   "meta": {},
   "collections": [
     {
-      "label": "Page Content",
+      "label": "Page Content Test",
       "name": "page",
       "path": "content/page",
       "fields": [
         {
           "name": "body",
-          "label": "Main Content",
+          "label": "Main Content Test:",
           "type": "rich-text",
           "isBody": true,
+          "templates": [
+            {
+              "name": "callout",
+              "label": "Callout",
+              "fields": [
+                {
+                  "name": "message",
+                  "label": "Message",
+                  "type": "string",
+                  "namespace": [
+                    "page",
+                    "body",
+                    "callout",
+                    "message"
+                  ]
+                }
+              ],
+              "namespace": [
+                "page",
+                "body",
+                "callout"
+              ]
+            }
+          ],
           "namespace": [
             "page",
             "body"
+          ]
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "type": "string",
+          "ui": {
+            "component": "text-email"
+          },
+          "namespace": [
+            "page",
+            "email"
+          ]
+        },
+        {
+          "label": "Categories",
+          "name": "categories",
+          "type": "string",
+          "options": [
+            "movies",
+            "art",
+            "food",
+            "sport"
+          ],
+          "list": true,
+          "namespace": [
+            "page",
+            "categories"
+          ]
+        },
+        {
+          "label": "Social Media",
+          "name": "socialmedia",
+          "type": "object",
+          "fields": [
+            {
+              "label": "Handle",
+              "name": "handle",
+              "type": "string",
+              "namespace": [
+                "page",
+                "socialmedia",
+                "handle"
+              ]
+            },
+            {
+              "label": "Service",
+              "name": "service",
+              "type": "string",
+              "options": [
+                "twitter",
+                "instagram",
+                "tiktok"
+              ],
+              "list": true,
+              "namespace": [
+                "page",
+                "socialmedia",
+                "service"
+              ]
+            }
+          ],
+          "namespace": [
+            "page",
+            "socialmedia"
           ]
         }
       ],
@@ -34,7 +123,7 @@
       "fields": [
         {
           "type": "string",
-          "label": "Title",
+          "label": "post Title",
           "name": "title",
           "namespace": [
             "post",
@@ -43,12 +132,98 @@
         },
         {
           "type": "string",
-          "label": "Blog Post Body",
+          "label": "Description",
+          "name": "description",
+          "ui": {
+            "component": "radio-group",
+            "options": [
+              {
+                "value": "XL",
+                "label": "XL"
+              },
+              {
+                "value": "L",
+                "label": "L"
+              }
+            ]
+          },
+          "namespace": [
+            "post",
+            "description"
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Date",
+          "name": "date",
+          "ui": {
+            "dateFormat": "DD.MM.YYYY",
+            "timeFormat": "HH:MM"
+          },
+          "namespace": [
+            "post",
+            "date"
+          ]
+        },
+        {
+          "label": "Image",
+          "name": "image",
+          "type": "image",
+          "namespace": [
+            "post",
+            "image"
+          ]
+        },
+        {
+          "type": "boolean",
+          "label": "Published",
+          "name": "published",
+          "namespace": [
+            "post",
+            "published"
+          ]
+        },
+        {
+          "type": "reference",
+          "label": "Author02",
+          "name": "author",
+          "collections": [
+            "author"
+          ],
+          "namespace": [
+            "post",
+            "author"
+          ]
+        },
+        {
+          "type": "rich-text",
+          "label": "post Body",
           "name": "body",
           "isBody": true,
-          "ui": {
-            "component": "textarea"
-          },
+          "templates": [
+            {
+              "name": "Cta",
+              "label": "Call to Action",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "heading",
+                  "label": "Heading",
+                  "namespace": [
+                    "post",
+                    "body",
+                    "Cta",
+                    "heading"
+                  ]
+                }
+              ],
+              "namespace": [
+                "post",
+                "body",
+                "Cta"
+              ]
+            }
+          ],
           "namespace": [
             "post",
             "body"
@@ -57,6 +232,34 @@
       ],
       "namespace": [
         "post"
+      ]
+    },
+    {
+      "label": "Author01",
+      "name": "author",
+      "path": "content/post/authors",
+      "fields": [
+        {
+          "label": "Avatar",
+          "name": "avatar",
+          "type": "string",
+          "namespace": [
+            "author",
+            "avatar"
+          ]
+        },
+        {
+          "label": "Avaname",
+          "name": "avaname",
+          "type": "string",
+          "namespace": [
+            "author",
+            "avaname"
+          ]
+        }
+      ],
+      "namespace": [
+        "author"
       ]
     }
   ]
